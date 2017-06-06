@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>FootballClub Inscriptions</title>
-    </head>
-    <body>
+	<head>
+			<meta charset="utf-8">
+			<title>FootballClub Inscriptions</title>
+            <link rel="stylesheet" href="./style.css">
+	</head>
+    <?php
+		$message ="";
+		if(isset($_GET['age'])){
+		    $age= $_GET['age'];
+		    if($age <=6){$message='Trop jeune';}
+		    elseif($age <=7){ $message='Poussin'; }
+		    elseif ($age <=9) { $message='Pupille'; }
+		    elseif ($age <=11) { $message='Minime'; }
+		    elseif ($age <15) { $message='Cadet'; }
+		    else { $message='Trop âgé'; }
+		}
+    ?>
+		<body>
+			<div class="container">
+			<h1>Catégorie selon l'âge de votre enfant</h1>
 
-        <h1>Catégorie selon l'âge de votre enfant</h1>
 
-        <?php
-        /*
-        1.1
-        (créer une variable $age et lui assigner une valeur de votre choix.)
-
-        écrire le script qui indique la catégorie selon $age:
-        "Trop jeune" si moins de 6 ans
-        "Poussin" de 6 à 7 ans
-        "Pupille" de 8 à 9 ans
-        "Minime" de 10 à 11 ans
-        "Cadet" après 12 ans
-        "Trop âgé" à partir de 15 ans
-
-        1.2
-        Récupérer la valeur de l'âge grâce à un paramètre GET dans l'URL
-
-        1.3
-        Ajouter un formulaire HTML avec un INPUT "age" permettant d'entrer un entier, et un bouton de type "submit"
-        */
-         ?>
-
-    </body>
+					<form class="formulaire">
+						<p>Je soussigné MME/MR <input type="text" name="nom" value="" placeholder="Nom">
+						<br> Désire inscrire mon enfant <input type="text" name="nomenfant" value="" placeholder="Nom">
+						au club de sport a partir de ce mois ci!</p>
+						<p>Veuillez inquer l'âge de votre enfant pour savoir dans qu'elle catégorie il sera:
+						<input type="age" name="age" placeholder="âge" >
+						</p>
+						<button type="submit" name="button">Go!</button>
+						<p><?php echo $message; ?></p>
+					</form>
+				</div>
+			</body>
 </html>
