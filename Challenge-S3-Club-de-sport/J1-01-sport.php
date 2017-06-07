@@ -9,7 +9,7 @@
 		$message ="";
 		if(isset($_GET['age'])){
 		    $age= $_GET['age'];
-		    if($age <=6){$message='Trop jeune';}
+		    if($age <6){$message='Trop jeune';}
 		    elseif($age <=7){ $message='Poussin'; }
 		    elseif ($age <=9) { $message='Pupille'; }
 		    elseif ($age <=11) { $message='Minime'; }
